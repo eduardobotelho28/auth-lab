@@ -50,7 +50,7 @@ function validateToken () {
 
     $tokenData = json_decode(base64_decode($payload));
 
-    if($tokenData->exp > time()) 
+    if($tokenData->exp < time()) 
         return false;
         
     return true;
