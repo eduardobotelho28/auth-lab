@@ -30,3 +30,29 @@ function generateToken($username) {
 
     return $jwt;
 }
+
+function validateToken () {
+    
+    $key   = 'FHEIEIHFIEHFIEI';
+    $token = $_COOKIE['token'];
+    
+    $tokenArray = explode('.', $token);
+
+    $header    = $tokenArray[0];
+    $payload   = $tokenArray[1];
+    $signature = $tokenArray[2];
+
+    $validSignature = hash_hmac('sha256', "$header.$payload", $key, true);
+    $validSignature = base64UrlEncode($validSignature);
+
+    if($signature != $validSignature) 
+        return false;
+
+    $tokenData = json_decode(base64_decode($payload));
+
+    if($tokenData->exp > time()) 
+        return false;
+        
+    return true;
+
+}
