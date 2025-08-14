@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/configs.php';
 
 // cria state anti-CSRF
 $state = bin2hex(random_bytes(16));
