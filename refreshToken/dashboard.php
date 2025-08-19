@@ -73,6 +73,9 @@ async function callApiWithAutoRefresh() {
   }
   // Se 401 – tenta refresh
   if (r.status === 401) {
+
+    console.log('refresh!')
+
     const rf = await fetch('api/refresh.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
