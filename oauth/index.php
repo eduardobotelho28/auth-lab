@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/configs.php'; ?>
+<?php require_once __DIR__ . '/functions.php'; ?>
 
 <!doctype html>
 <html lang="pt-br">

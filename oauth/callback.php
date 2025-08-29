@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/configs.php';
+require_once __DIR__ . '/functions.php';
 
 // se Google retornou erro
 if (isset($_GET['error'])) {
